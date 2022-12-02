@@ -4,8 +4,7 @@ import com.todo.list.app.data.entity.TaskEntity;
 import com.todo.list.app.domain.model.Task;
 import org.mapstruct.Mapper;
 
-//TODO: mejorar los mapeos 
-@Mapper
+@Mapper(componentModel= "task", uses = {MapperTask.class})
 public interface TaskEntityMapper {
 
     Task entityToDomain(TaskEntity entity);

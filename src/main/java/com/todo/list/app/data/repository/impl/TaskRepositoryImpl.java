@@ -3,11 +3,10 @@ package com.todo.list.app.data.repository.impl;
 import com.todo.list.app.data.entity.TaskEntity;
 import com.todo.list.app.data.mapper.TaskEntityMapper;
 import com.todo.list.app.data.repository.SpringDataTaskRepository;
-import com.todo.list.app.data.repository.exception.ScaException;
 import com.todo.list.app.domain.model.Task;
 import com.todo.list.app.logic.repository.TaskRepository;
-import com.todo.list.app.web.dto.TaskDto;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 @Slf4j
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TaskRepositoryImpl implements TaskRepository {
 
     private final SpringDataTaskRepository springDataTaskRepository;

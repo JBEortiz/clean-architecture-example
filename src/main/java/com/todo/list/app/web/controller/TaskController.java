@@ -3,13 +3,14 @@ package com.todo.list.app.web.controller;
 import com.todo.list.app.logic.service.TaskService;
 import com.todo.list.app.web.dto.TaskDto;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import net.bytebuddy.asm.Advice;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 public class TaskController {
 
