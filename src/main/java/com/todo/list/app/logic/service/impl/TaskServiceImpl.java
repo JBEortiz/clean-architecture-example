@@ -6,15 +6,18 @@ import com.todo.list.app.logic.repository.TaskRepository;
 import com.todo.list.app.logic.service.TaskService;
 import com.todo.list.app.web.dto.TaskDto;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@AllArgsConstructor
+import java.util.stream.Collectors;
+
+@RequiredArgsConstructor
 @Service
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
-
     private final TaskMapper taskMapper;
 
     @Override
@@ -22,7 +25,7 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.getAllTask()
                 .stream()
                 .map(taskMapper::domainToDto)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -33,8 +36,15 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskDto createTask(TaskDto taskDto) {
+        Task t = taskMapper.dtoToDomain(taskDto);
+        Task t2= taskRepository.createTask(t);
+        return taskMapper.domainToDto(t2);
+       /*
         return taskMapper.domainToDto(
                 taskRepository.createTask(
                         taskMapper.dtoToDomain(taskDto)));
+
+
+        */
     }
 }

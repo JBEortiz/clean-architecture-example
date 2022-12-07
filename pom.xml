@@ -14,8 +14,16 @@
 	<name>com.todo.list.app</name>
 	<description>To-do List App</description>
 	<properties>
-		<java.version>17</java.version>
-		<mapstruct.version>1.5.2.Final</mapstruct.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
+		<spring.version>5.2.9.RELEASE</spring.version>
+		<lombok.version>1.18.12</lombok.version>
+		<junit.version>5.7.0</junit.version>
+		<mapstruct.version>1.4.2.Final</mapstruct.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,12 +74,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<source>1.8</source>
+					<target>1.8</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
@@ -81,12 +85,12 @@
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>
-							<version>1.3.1.Final</version>
+							<version>${mapstruct.version}</version>
 						</path>
 						<path>
 							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>1.18.4</version>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+							<version>0.2.0</version>
 						</path>
 					</annotationProcessorPaths>
 					<compilerArgs>
@@ -99,4 +103,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

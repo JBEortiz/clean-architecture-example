@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -21,10 +24,15 @@ public class TaskRepositoryImpl implements TaskRepository {
     private final TaskEntityMapper taskEntityMapper;
     @Override
     public List<Task> getAllTask() {
+        AtomicInteger atomic = new AtomicInteger(0);
         return springDataTaskRepository.findAll()
                 .stream()
                 .map(taskEntityMapper::entityToDomain)
-                .toList();
+                .map(task->{
+                    task.setNumber(atomic.incrementAndGet());
+                    return task;
+                })
+                .collect(Collectors.toList());
     }
 
     //:TODO poner excepcion personalizada

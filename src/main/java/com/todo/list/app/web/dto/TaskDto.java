@@ -1,15 +1,25 @@
 package com.todo.list.app.web.dto;
 
-import com.todo.list.app.data.enums.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import lombok.*;
 
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonAutoDetect
+@Builder
 public class TaskDto {
 
-    private boolean status;
+    private Boolean status;
 
     private String affair;
 
     private String coments;
 
     private Integer number;
+
 
 }
