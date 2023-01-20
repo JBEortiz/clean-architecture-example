@@ -9,7 +9,7 @@ public interface TaskRepository {
 
     List<Task> getAllTask();
 
-    Task getById(String id);
+    Task getByIdDate(String id);
 
     Task createTask(Task task);
 

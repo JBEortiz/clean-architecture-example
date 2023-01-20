@@ -37,9 +37,9 @@ public class TaskRepositoryImpl implements TaskRepository {
 
     //:TODO poner excepcion personalizada
     @Override
-    public Task getById(String id) {
+    public Task getByIdDate(String idDate) {
         return taskEntityMapper.entityToDomain(
-                springDataTaskRepository.findById(UUID.fromString(id))
+                springDataTaskRepository.findByIdDate(idDate)
                         .orElse(new TaskEntity()));
     }
 

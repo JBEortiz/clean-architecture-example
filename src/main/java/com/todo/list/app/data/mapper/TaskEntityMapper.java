@@ -14,7 +14,7 @@ public class TaskEntityMapper {
     public Task entityToDomain(TaskEntity entity){
         return new Task().builder()
                 .idTask(entity.getUuid().toString())
-                .coments(entity.getComents())
+                .idDate(entity.getIdDate())
                 .status(entity.getStatus())
                 .affair(entity.getAffair())
                 .number(null).build();
@@ -23,7 +23,7 @@ public class TaskEntityMapper {
     public TaskEntity domainToEntity(Task domain){
         return new TaskEntity().builder()
                 .uuid(domain.getIdTask()!=null ? UUID.fromString(domain.getIdTask()):UUID.randomUUID())
-                .coments(domain.getComents())
+                .idDate(domain.getIdDate())
                 .status(domain.getStatus())
                 .affair(domain.getAffair())
                 .build();

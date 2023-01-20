@@ -18,7 +18,7 @@ public class Task {
 
     private String affair;
 
-    private String coments;
+    private String idDate;
 
     private Integer number;
 }

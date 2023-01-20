@@ -21,30 +21,23 @@ public class TaskServiceImpl implements TaskService {
     private final TaskMapper taskMapper;
 
     @Override
-    public List<TaskDto> getAllTask() {
-        return taskRepository.getAllTask()
-                .stream()
-                .map(taskMapper::domainToDto)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public TaskDto getById(String id) {
+    public TaskDto getByIdDate(String idDate) {
         return taskMapper.domainToDto(
-                taskRepository.getById(id));
+                taskRepository.getByIdDate(idDate));
     }
 
     @Override
     public TaskDto createTask(TaskDto taskDto) {
-        Task t = taskMapper.dtoToDomain(taskDto);
-        Task t2= taskRepository.createTask(t);
-        return taskMapper.domainToDto(t2);
-       /*
         return taskMapper.domainToDto(
                 taskRepository.createTask(
                         taskMapper.dtoToDomain(taskDto)));
-
-
-        */
     }
+
+    @Override
+    public List<TaskDto> getAllTask() {
+        return taskRepository.getAllTask()
+                .stream()
+                .map(taskMapper::domainToDto).collect(Collectors.toList());
+    }
+
 }

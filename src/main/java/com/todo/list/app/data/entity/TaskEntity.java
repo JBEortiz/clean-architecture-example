@@ -22,12 +22,9 @@ public class TaskEntity {
     @GenericGenerator(name = "system-uuid", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "uuid", length = 36,unique = true)
     private UUID uuid ;
-
     private OrderStatus status;
-
     private String affair;
-
-    private String coments;
+    private String idDate;
 
 
 }

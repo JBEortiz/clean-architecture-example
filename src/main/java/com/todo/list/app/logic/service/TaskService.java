@@ -9,7 +9,7 @@ public interface TaskService {
 
     List<TaskDto> getAllTask();
 
-    TaskDto getById(String id);
+    TaskDto getByIdDate(String idDate);
 
     TaskDto createTask(TaskDto taskDto);
 }

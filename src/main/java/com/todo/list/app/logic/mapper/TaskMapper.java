@@ -13,7 +13,7 @@ public class TaskMapper {
 
     public TaskDto domainToDto(Task task){
        return  new TaskDto().builder()
-               .coments(task.getComents())
+               .idDate(task.getIdDate())
                .status(task.getStatus() != OrderStatus.PENDING)
                .affair(task.getAffair())
                .number(task.getNumber())
@@ -23,7 +23,7 @@ public class TaskMapper {
     public Task dtoToDomain(TaskDto dto){
         return new Task().builder()
                 .idTask(null)
-                .coments(dto.getComents())
+                .idDate(dto.getIdDate())
                 .status(dto.getStatus()!=null && dto.getStatus()? OrderStatus.APPROVED: OrderStatus.PENDING)
                 .affair(dto.getAffair())
                 .number(null).build();
