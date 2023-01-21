@@ -33,6 +33,13 @@ public class TaskController {
         }
         return ResponseEntity.ok(taskService.createTask(taskDto));
     }
+    @PostMapping("/task/crear")
+    public ResponseEntity<TaskDto> createeTask(@RequestBody TaskDto taskDto) {
+        if (taskDto == null) {
+            //TODO cambiar exception controllar nulos
+        }
+        return ResponseEntity.ok(taskService.createTask(taskDto));
+    }
 
 
 }

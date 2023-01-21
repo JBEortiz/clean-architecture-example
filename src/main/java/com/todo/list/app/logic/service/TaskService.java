@@ -12,4 +12,6 @@ public interface TaskService {
     TaskDto getByIdDate(String idDate);
 
     TaskDto createTask(TaskDto taskDto);
+
+     List<TaskDto> getAllTasks();
 }
