@@ -39,11 +39,6 @@ public class TaskServiceImpl implements TaskService {
                 .stream()
                 .map(taskMapper::domainToDto).collect(Collectors.toList());
     }
-    @Override
-    public List<TaskDto> getAllTasks() {
-        return taskRepository.getAllTask()
-                .stream()
-                .map(taskMapper::domainToDto).collect(Collectors.toList());
-    }
+
 
 }

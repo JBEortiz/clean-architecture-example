@@ -13,5 +13,5 @@ public interface TaskService {
 
     TaskDto createTask(TaskDto taskDto);
 
-     List<TaskDto> getAllTasks();
+
 }
